@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAssets, formatPrice, formatMarketCap, formatPercentage } from "../services/api";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export const Gainers = () => {
   const { data: assets, isLoading, error } = useAssets();
@@ -46,8 +47,14 @@ export const Gainers = () => {
                 <td>{asset.rank}</td>
                 <td>
                   <div className="flex items-center gap-2">
-                    <span className="font-bold">{asset.name}</span>
-                    <span className="text-gray-600">{asset.symbol}</span>
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src={asset.imageUrl} alt={asset.name} />
+                      <AvatarFallback>{asset.symbol.slice(0, 2)}</AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col items-start">
+                      <span className="font-bold">{asset.name}</span>
+                      <span className="text-gray-600">{asset.symbol}</span>
+                    </div>
                   </div>
                 </td>
                 <td>{formatPrice(asset.priceUsd)}</td>

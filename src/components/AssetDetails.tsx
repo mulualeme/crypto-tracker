@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useAssetDetails, useAssetHistory, formatPrice, formatMarketCap, formatPercentage } from "../services/api";
+import { useAssetDetails, useAssetHistory, formatPrice, formatMarketCap, formatPercentage, getAssetImageUrl } from "../services/api";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export const AssetDetails = () => {
   const { id } = useParams();
@@ -29,9 +30,15 @@ export const AssetDetails = () => {
 
       <div className="brutalist-card p-8 mb-8">
         <div className="flex justify-between items-start mb-8">
-          <div>
-            <h1 className="text-4xl font-bold mb-2">{asset.name}</h1>
-            <p className="text-2xl">{asset.symbol}</p>
+          <div className="flex items-center gap-4">
+            <Avatar className="h-16 w-16">
+              <AvatarImage src={getAssetImageUrl(asset.symbol)} alt={asset.name} />
+              <AvatarFallback>{asset.symbol.slice(0, 2)}</AvatarFallback>
+            </Avatar>
+            <div>
+              <h1 className="text-4xl font-bold mb-2">{asset.name}</h1>
+              <p className="text-2xl">{asset.symbol}</p>
+            </div>
           </div>
           <div className="text-right">
             <p className="text-3xl font-bold mb-2">{formatPrice(asset.priceUsd)}</p>

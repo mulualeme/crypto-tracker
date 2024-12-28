@@ -10,6 +10,7 @@ export interface Asset {
   priceUsd: string;
   changePercent24Hr: string;
   marketCapUsd: string;
+  imageUrl?: string;
 }
 
 export interface AssetHistory {
@@ -17,13 +18,20 @@ export interface AssetHistory {
   time: number;
 }
 
+export const getAssetImageUrl = (symbol: string) => {
+  return `https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`;
+};
+
 export const useAssets = () => {
   return useQuery({
     queryKey: ["assets"],
     queryFn: async () => {
       const response = await fetch(`${COINCAP_API_BASE}/assets?limit=50`);
       const data = await response.json();
-      return data.data as Asset[];
+      return data.data.map((asset: Asset) => ({
+        ...asset,
+        imageUrl: getAssetImageUrl(asset.symbol),
+      })) as Asset[];
     },
     refetchInterval: 30000, // Refetch every 30 seconds
   });
