@@ -24,3 +24,6 @@ A modern, responsive cryptocurrency tracking application built with React, TypeS
 - **Charts:** Recharts
 - **Routing:** React Router DOM
 - **Data Fetching:** React Query
+
+## demo
+https://cr-tracker.netlify.app/
