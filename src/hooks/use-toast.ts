@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export interface Toast {
   id: string;
@@ -22,3 +22,11 @@ export function useToast() {
 
   return { toast, dismiss, toasts };
 }
+
+// Export a singleton instance of toast
+export const toast = {
+  show: (props: Omit<Toast, "id">) => {
+    const { toast } = useToast();
+    return toast(props);
+  },
+};
