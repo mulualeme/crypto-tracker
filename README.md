@@ -1,69 +1,26 @@
-# Welcome to your Lovable project
+# Cryptocurrency Price Tracker
 
-## Project info
+A modern, responsive cryptocurrency tracking application built with React, TypeScript, and Vite. Features a brutalist design aesthetic with real-time price updates, detailed asset information, and top gainers/losers tracking.
 
-**URL**: https://lovable.dev/projects/8ef9da6d-191a-4645-87fa-c733f0a6ca8a
+![Cryptocurrency Price Tracker Screenshot](screenshot.png)
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- 📈 Real-time cryptocurrency price tracking
+- 📊 Detailed price charts and market statistics
+- 🏆 Top gainers and losers tracking
+- 💼 Market cap and 24h change information
+- 📱 Fully responsive design
+- ⚡ Fast performance with Vite
+- 🎨 Brutalist design aesthetic
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8ef9da6d-191a-4645-87fa-c733f0a6ca8a) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/8ef9da6d-191a-4645-87fa-c733f0a6ca8a) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- **Frontend Framework:** React 18
+- **Build Tool:** Vite
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn/ui
+- **Charts:** Recharts
+- **Routing:** React Router DOM
+- **Data Fetching:** React Query
