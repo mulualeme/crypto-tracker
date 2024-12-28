@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAssets, formatPrice, formatMarketCap, formatPercentage } from "../services/api";
 
-export const AssetList = () => {
+export const Losers = () => {
   const { data: assets, isLoading, error } = useAssets();
   const navigate = useNavigate();
 
@@ -13,24 +13,21 @@ export const AssetList = () => {
     return <div className="text-center p-8 text-red-500">Error loading assets</div>;
   }
 
+  const losers = assets
+    ?.filter((asset) => parseFloat(asset.changePercent24Hr) < 0)
+    .sort((a, b) => parseFloat(a.changePercent24Hr) - parseFloat(b.changePercent24Hr))
+    .slice(0, 10);
+
   return (
     <div className="p-8">
-      <div className="flex flex-col gap-4 mb-8">
-        <h1 className="text-4xl font-bold">TOP 50 CRYPTO ASSETS</h1>
-        <div className="flex gap-4 justify-center">
-          <button 
-            onClick={() => navigate('/gainers')} 
-            className="brutalist-button"
-          >
-            TOP GAINERS
-          </button>
-          <button 
-            onClick={() => navigate('/losers')} 
-            className="brutalist-button"
-          >
-            TOP LOSERS
-          </button>
-        </div>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-bold">TOP 10 LOSERS</h1>
+        <button 
+          onClick={() => navigate('/')} 
+          className="brutalist-button"
+        >
+          BACK TO ALL
+        </button>
       </div>
       <div className="overflow-x-auto">
         <table className="brutalist-table">
@@ -44,7 +41,7 @@ export const AssetList = () => {
             </tr>
           </thead>
           <tbody>
-            {assets?.map((asset) => (
+            {losers?.map((asset) => (
               <tr key={asset.id} onClick={() => navigate(`/asset/${asset.id}`)}>
                 <td>{asset.rank}</td>
                 <td>
@@ -54,7 +51,7 @@ export const AssetList = () => {
                   </div>
                 </td>
                 <td>{formatPrice(asset.priceUsd)}</td>
-                <td className={parseFloat(asset.changePercent24Hr) >= 0 ? "text-green-600" : "text-red-600"}>
+                <td className="text-[#ea384c] font-bold">
                   {formatPercentage(asset.changePercent24Hr)}
                 </td>
                 <td>{formatMarketCap(asset.marketCapUsd)}</td>
