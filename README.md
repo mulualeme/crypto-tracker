@@ -2,7 +2,7 @@
 
 A modern, responsive cryptocurrency tracking application built with React, TypeScript, and Vite. Features a brutalist design aesthetic with real-time price updates, detailed asset information, and top gainers/losers tracking.
 
-![Cryptocurrency Price Tracker Screenshot](screenshot.png)
+![Cryptocurrency Price Tracker Screenshot](./public/image.png)
 
 ## Features
 
